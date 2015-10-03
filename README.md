@@ -15,7 +15,7 @@ Another camlistore image.
 docker run -v /data --name camlistore-data busybox
 
 # Run your camlistored instance
-docker run --rm -it -p 8080:80 --volumes-from camlistore-data -v /Users/nax/.config/camlistore:/config camlistored
+docker run --rm -it -p 8080:80 --volumes-from camlistore-data -v /Users/nax/.config/camlistore:/config naxhh/camlistored
 ```
 
 ## Server config example
@@ -38,8 +38,10 @@ docker run --rm -it -p 8080:80 --volumes-from camlistore-data -v /Users/nax/.con
 Notice the blobPath is /data and the identity ring is /config
 
 
-## Build binaries
+## Build docker image
 
 ```
 docker run --rm -it -v $(pwd)/bin:/app golang:1.5 sh -c "git clone https://camlistore.googlesource.com/camlistore && cd camlistore && go run make.go && cp ./bin/* /app"
+docker build -t naxhh/camlistored .
+docker push naxhh/camlistored
 ```
