@@ -1,6 +1,7 @@
 # Camlistore
 
 Another camlistore image.
+https://hub.docker.com/r/naxhh/camlistored/
 
 ## Main goals
 
